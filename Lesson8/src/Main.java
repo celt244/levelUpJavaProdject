@@ -10,9 +10,11 @@ public class Main {
         System.out.println();
 //////////////////////////////////////////
         int b = 257;
+        int nextD;
         do {
-            b /= 10;
+            nexstD = b % 10;
             System.out.println(b);
+            b /= 10;
 
         } while (b < 0);
 /////////////////////////////////////////////////////////////////////
