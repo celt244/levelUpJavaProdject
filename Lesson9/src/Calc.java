@@ -1,6 +1,6 @@
 public class Calc {
 
-    public static int summ (int a, int b){
+    public static int sum(int a, int b){
         return  a+b;
 }
     public static double sum (double x, double y){
