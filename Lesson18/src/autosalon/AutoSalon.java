@@ -44,7 +44,7 @@ public class AutoSalon {
     }
 
     public Comparator<Car> getComparator() {
-        return (c1, c2) -> Double.compare(c1.getFuelConsumption(), c2.getFuelConsumption());
+        return (c1, c2) -> -1 *  Double.compare(c1.getFuelConsumption(), c2.getFuelConsumption());
         // inversion - (c1, c2) -> -1 *Double.co
     }
 }

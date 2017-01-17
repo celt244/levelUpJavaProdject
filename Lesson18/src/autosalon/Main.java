@@ -12,11 +12,18 @@ public class Main {
         new Lanos(170,12, Configuration.LUX),
         new Mercedes(180, 18, Configuration.BASIC)
         };
+            // the same for(Car car : cars)
+        for (Action car : cars){
+            car.stop();
+            car.beep();
+            car.drive();
+        }
+
 
         AutoSalon autoSalon = new AutoSalon(cars);
 
         System.out.println("Total price: " + autoSalon.calculateCarsPrice());
         System.out.println(Arrays.toString(autoSalon.sortByFuelConsumption()));
-        System.out.println(Arrays.toString(autoSalon.getCarsBySpeedRange(160, 170)));
+        System.out.println(Arrays.toString(autoSalon.getCarsBySpeedRange(0, 170)));
     }
 }

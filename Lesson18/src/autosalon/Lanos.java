@@ -20,4 +20,9 @@ public class Lanos extends Car {
                 return 5_000;
         }
     }
+
+    @Override
+    public void beep() {
+        System.out.println("Beeeep! Beep-beep");
+    }
 }
