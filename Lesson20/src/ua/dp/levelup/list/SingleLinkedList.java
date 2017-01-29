@@ -2,23 +2,14 @@ package ua.dp.levelup.list;
 
 import java.util.Optional;
 
-public class SingleLinkedList extends AbstractList{
+public class SingleLinkedList extends AbstractList {
 
-   private Node root = null;
-
-    public void addNode (Node n){
-
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
+    private Node root = null;
 
     @Override
     public void addFirst(Node node) {
         if(null == node) return;
-        if (null == root){
+        if(null == root) {
             root = node;
         } else {
             node.setNext(root);
@@ -30,26 +21,25 @@ public class SingleLinkedList extends AbstractList{
     @Override
     public void addLast(Node node) {
         if(null == node) return;
-        if (null == root){
+        if(null == root) {
             root = node;
         } else {
             Node tmp = root;
-            while (tmp.next() != null){
+            while (tmp.next() != null) {
                 tmp = tmp.next();
             }
             tmp.setNext(node);
         }
         size++;
-
     }
 
     @Override
     public void removeFirst() {
         Node first = root;
-        if(null != first) return; // do nothing
-        if(first.next() == null){
-            root = first.next();      // can be null, if be list = 1
-           first.setNext(null);
+        if(null == first) return;   //do nothing
+        if(first.next() != null) {
+            root = first.next();    //can be null, if list size = 1
+            first.setNext(null);
         } else {
             root = null;
         }
@@ -59,19 +49,20 @@ public class SingleLinkedList extends AbstractList{
     @Override
     public void removeLast() {
         Node first = root;
-        if (null == first) return;
-        if(null == first.next()){
-            root = null;    // in case when list size = 1
+        if(null == first) return;   //do nothing
+        if(null == first.next()) {
+            root = null;            //in case when list size = 1
         } else {
             Node tmp = first.next();
             Node prev = tmp;
-            while (null != tmp.next()){
+            while (null != tmp.next()) {
                 prev = tmp;
                 tmp = tmp.next();
             }
             prev.setNext(null);
         }
         size--;
+
     }
 
     @Override
@@ -80,21 +71,20 @@ public class SingleLinkedList extends AbstractList{
     }
 
     @Override
-
     public Optional<Node> getLast() {
-            Node last = root;
-            while (last.next() != null && last.next() != null){
-                last = last.next();
-            }
-            return Optional.of(last);
+        Node last = root;
+        while (last != null && last.next() != null) {
+            last = last.next();
         }
+        return Optional.ofNullable(last);
+    }
 
     @Override
-        public Optional<Node> get(int index) {
-        if (index < 0 || index >= size) return Optional.empty(); // check fot ivalid index
+    public Optional<Node> get(int index) {
+        if(index < 0 || index >= size) return Optional.empty(); //check for invalid index
         Node result = root;
-        for (int currentIndex = 0; currentIndex < size; currentIndex++){
-            if (currentIndex == index) break;
+        for(int currentIndex = 0; currentIndex < size; currentIndex++) {
+            if(currentIndex == index) break;
             result = result.next();
         }
         return Optional.of(result);
@@ -108,5 +98,17 @@ public class SingleLinkedList extends AbstractList{
     @Override
     public boolean isNotEmpty() {
         return !isEmpty();
+    }
+
+    @Override
+    public void addNode(Node node, int index) {
+       //if (index > 0 || index <= size)
+          //  Node tmp =
+
+    }
+
+    @Override
+    public void remove(int index) {
+
     }
 }

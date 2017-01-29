@@ -6,7 +6,7 @@ public abstract class AbstractList {
 
     protected int size = 0;
 
-    public int size(){
+    public int size() {
         return size;
     }
 
@@ -27,6 +27,10 @@ public abstract class AbstractList {
     public abstract boolean isEmpty();
 
     public abstract boolean isNotEmpty();
+
+    public abstract void addNode(Node node, int index);
+
+    public abstract void remove(int index);
 
 
 }

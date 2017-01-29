@@ -3,7 +3,7 @@ package ua.dp.levelup.list;
 public class Node {
 
     private Node next = null;
-   private Object value;
+    private Object value;
 
     public Node(Object value) {
         this.value = value;
