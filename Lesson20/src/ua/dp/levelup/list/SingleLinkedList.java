@@ -1,8 +1,10 @@
 package ua.dp.levelup.list;
 
+import ua.dp.levelup.AbstractList;
+
 import java.util.Optional;
 
-public class SingleLinkedList extends AbstractList {
+public class SingleLinkedList extends AbstractList<Node> {
 
     private Node root = null;
 
@@ -101,11 +103,10 @@ public class SingleLinkedList extends AbstractList {
     }
 
     @Override
-    public void addNode(Node node, int index) {
-       //if (index > 0 || index <= size)
-          //  Node tmp =
+    public void add(Node node, int index) {
 
     }
+
 
     @Override
     public void remove(int index) {
