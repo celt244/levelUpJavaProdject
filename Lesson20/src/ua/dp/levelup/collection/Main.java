@@ -1,5 +1,6 @@
 package ua.dp.levelup.collection;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -51,6 +52,7 @@ public class Main{
         ListIterator<Integer> iter = list.listIterator();
         while(iter.hasNext()) System.out.println(iter.next());
 
+
     }
-    
+
 }
