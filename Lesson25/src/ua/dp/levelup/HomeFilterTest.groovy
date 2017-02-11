@@ -19,15 +19,16 @@ public class HomeFilterTest extends Specification{
             new Home (2, "Lenina", 2, 4)
     );
 
+
     def 'check streetName comparator' () {
 
         when:
         Set<Home> homeSet = new TreeSet<>(streetComparator());
-        homeSet.add(list);
+        homeSet.addAll(list);
         println(homeSet.size() + " " + homeSet)
 
         then:
-        homeSet.size() == 7;
+        homeSet.size() == 6;
     }
 
 
