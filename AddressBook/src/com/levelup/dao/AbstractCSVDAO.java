@@ -30,7 +30,7 @@ public abstract class AbstractCSVDAO<T extends Entity> extends AbstractFileDAO<T
 
 
         try {
-            file.seek(HEADER_CSV.length());
+            file.seek((HEADER_CSV + "\r\n").length());
 
             while ((line = file.readLine()) != null) {
                 if (line.startsWith(entity.getId() + ";")) {
