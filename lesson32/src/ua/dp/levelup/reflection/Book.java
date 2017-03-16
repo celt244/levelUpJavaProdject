@@ -4,11 +4,14 @@ package ua.dp.levelup.reflection;
  * Created by java on 07.03.2017.
  */
 public class Book {
+
     @ToXML
     private final long id;
     @ToXML
     private String bookName;
+
     private int pageCount;
+
     public String author;
 
     public Book(long id) {

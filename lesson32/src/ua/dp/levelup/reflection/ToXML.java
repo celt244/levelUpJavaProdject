@@ -8,9 +8,7 @@ import java.lang.annotation.Target;
 /**
  * Created by java on 07.03.2017.
  */
-
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
+@Target(value = {ElementType.FIELD})
 public @interface ToXML {
-
 }
