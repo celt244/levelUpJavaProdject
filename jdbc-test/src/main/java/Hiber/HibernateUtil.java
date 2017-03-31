@@ -1,4 +1,4 @@
-package Hiber;
+package hiber;
 
 import org.hibernate.SessionFactory;
 
@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory = null;
+
     static {
         try {
 //creates the session factory from hibernate.cfg.xml
