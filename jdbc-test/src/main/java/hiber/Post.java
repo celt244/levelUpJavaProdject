@@ -1,6 +1,9 @@
 package hiber;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,13 +13,14 @@ import java.util.List;
  * Created by java on 31.03.2017.
  */
 
-@Entity
-@Table(name = "departments")
+
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString(exclude = "employees")
-public class Department {
+@Entity
+@Table(name = "posts")
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,10 +30,10 @@ public class Department {
     @Column(name = "date_create")
     private Date createDate;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "department")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post")
     private List<Employee> employees;
 
-    public Department(String title, Date createDate) {
+    public Post(String title, Date createDate) {
         this.title = title;
         this.createDate = createDate;
     }

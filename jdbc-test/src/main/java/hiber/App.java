@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.util.Date;
 import java.util.List;
 
 import static hiber.HibernateUtil.getSessionFactory;
@@ -16,19 +17,36 @@ public class App {
 
     public static void main(String[] args) {
 
-        SessionFactory sessionFactory = getSessionFactory();
 
 //        Employee employee = new Employee();
 
-try ( Session session = sessionFactory.openSession();){
+try (         SessionFactory sessionFactory = getSessionFactory();
+              Session session = sessionFactory.openSession();){
 
 
-    Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000);
+    Query<Department> departmentQuery = session.createQuery("from Department where id = :id", Department.class);
+    departmentQuery.setParameter("id",1L);
+
+    Query<Post> postQuery = session.createQuery("from Post where id = :id", Post.class);
+    postQuery.setParameter("id", 1L);
+
+    Post post = postQuery.uniqueResult();
+
+    Department department = departmentQuery.uniqueResult();
+
+
+    Employee employee = new Employee("Andrey", "Ivanov", "Robertovich", 55000, department, post);
+
+    PhoneNumber phoneNumber = new PhoneNumber("380930000000", employee);
+
 
     Transaction transaction = session.getTransaction();
 
     transaction.begin();
     session.save(employee);
+    session.save(phoneNumber);
+    employee.setPhoneNumber(phoneNumber);
+    session.update(employee);
     transaction.commit();
 
 
