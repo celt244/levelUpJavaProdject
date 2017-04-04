@@ -32,13 +32,16 @@ public class Employee {
     private double salary;
     @Column
     @Type(type = "timestamp")
-    private Date dateCreate;
+    private Date dateCreate = new Date();
 
-    public Employee(String firstName, String lastName, String secondName, double salary, Date dateCreate) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    public Employee(String firstName, String lastName, String secondName, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.secondName = secondName;
         this.salary = salary;
-        this.dateCreate = dateCreate;
     }
 }
