@@ -24,6 +24,7 @@ public class User {
     @Column
     private boolean blocked;
 
+
     public User() {
     }
 

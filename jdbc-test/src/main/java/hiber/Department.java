@@ -1,6 +1,7 @@
 package hiber;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class Department {
     @Column
     private String title;
     @Column(name = "date_create")
+    @Type(type = "timestamp")
     private Date createDate;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "department")
