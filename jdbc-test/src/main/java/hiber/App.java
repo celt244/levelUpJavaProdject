@@ -76,7 +76,7 @@ try (         SessionFactory sessionFactory = getSessionFactory();
 
     Predicate predicate = criteriaBuilder.equal(yachtRoot.get("model"), "2247");
 
-//    CriteriaQuery<Yacht> query = criteriaQuery.where(predicate);
+    CriteriaQuery<Yacht> query = criteriaQuery.where(predicate);
 //    query.get
 
 
