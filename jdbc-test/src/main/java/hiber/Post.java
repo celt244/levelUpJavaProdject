@@ -12,8 +12,6 @@ import java.util.List;
 /**
  * Created by java on 31.03.2017.
  */
-
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,13 +26,13 @@ public class Post {
     @Column
     private String title;
     @Column(name = "date_create")
-    private Date createDate;
+    private Date creationDate;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "post")
     private List<Employee> employees;
 
-    public Post(String title, Date createDate) {
+    public Post(String title, Date creationDate) {
         this.title = title;
-        this.createDate = createDate;
+        this.creationDate = creationDate;
     }
 }

@@ -7,11 +7,9 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
-
 /**
  * Created by java on 07.04.2017.
  */
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,7 +22,7 @@ public class Car {
     private String model;
     @Enumerated(EnumType.STRING)
     @Column
-    private Color color;
+    private Color color = Color.BLACK;
     @Column
     private double maxSpeed;
 

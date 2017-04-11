@@ -6,9 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.IdClass;
 
 /**
  * Created by java on 04.04.2017.
@@ -18,12 +15,13 @@ import javax.persistence.IdClass;
 @NoArgsConstructor
 @ToString(exclude = "employee")
 @Entity
-@Table(name = "PHONE_NUMBER")
+@Table(name = "PHONE_NUMBERS")
 public class PhoneNumber {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     @Column(length = 15)
     private String number;
 
