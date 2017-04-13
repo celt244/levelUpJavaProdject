@@ -48,6 +48,16 @@
       <version>1.16.0</version>
     </dependency>
 
+<<<<<<< HEAD
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-jpamodelgen</artifactId>
+      <version>5.2.9.Final</version>
+    </dependency>
+
+
+=======
+>>>>>>> 0285f28a35d73acd24aa24432fae652a6fe507bb
   </dependencies>
 
 </project>
