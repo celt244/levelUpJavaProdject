@@ -8,7 +8,7 @@ import static email.EmailSender.INSTANCE;
  * Created by java on 21.04.2017.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        INSTANCE.sendEmail();
 //        emailSender.sendEmail();
 
@@ -25,7 +25,8 @@ public class Main {
         consumer2.start();
         consumer3.start();
 
-        
+        Thread.sleep(10000);
+
     }
 
 

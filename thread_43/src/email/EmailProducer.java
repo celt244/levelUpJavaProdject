@@ -28,7 +28,7 @@ public class EmailProducer {
                     new EmailMessage("user1@yopmail.com","test message", "test message")
 
             );
-            for (EmailSender m : messageList) {
+            for (EmailMessage m : messageList) {
                 queue.offer(m);
             }
 

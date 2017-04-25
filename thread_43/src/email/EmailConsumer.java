@@ -1,5 +1,6 @@
 package email;
 
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -14,14 +15,16 @@ public class EmailConsumer {
         this.queue = queue;
     }
 
-    public void start(){
+    public void start() {
         new Thread(() -> {
             EmailMessage message = null;
-            while((message = queue.poll()) !=null)   {
-                System.out.println(Thread.currentThread().getName() + "Send message to " +  );
-           EmailSender.INSTANCE.sendEmail(message.getClientEmail(), message.getMessageText(), message.getSubject());
-
+            while ((message = queue.poll()) != null) {
+                System.out.println(new Date() + ": " + Thread.currentThread().getName() + " Send message to: " + message.getClientEmail());
+                EmailSender.INSTANCE.sendEmail(message.getClientEmail(), message.getMessageText(), message.getSubject());
+            }
 
         }).start();
-}
     }
+
+
+}
