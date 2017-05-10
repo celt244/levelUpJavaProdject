@@ -1,10 +1,6 @@
 package email;
 
 import java.util.Date;
-<<<<<<< HEAD
-=======
-import java.util.List;
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -18,18 +14,10 @@ public class EmailConsumer extends Thread {
         this.queue = queue;
     }
 
-<<<<<<< HEAD
     @Override
     public void run() {
         EmailMessage message = null;
         while (true) {
-=======
-
-    @Override
-    public void run() {
-        EmailMessage message = null;
-        while(true) {
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
             while ((message = queue.poll()) != null) {
                 System.out.println(new Date() + ": " + Thread.currentThread().getName() + " Send message to: " + message.getClientEmail());
                 EmailSender.INSTANCE.sendEmail(message.getClientEmail(), message.getMessageText(), message.getSubject());
@@ -37,8 +25,4 @@ public class EmailConsumer extends Thread {
         }
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287

@@ -3,10 +3,6 @@ package basic;
 /**
  * Created by java on 14.04.2017.
  */
-<<<<<<< HEAD
-=======
-//import  static basic.Main.print;
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 public class CounterRunnable implements Runnable {
 
     private int initialValue;

@@ -6,8 +6,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static email.EmailSender.INSTANCE;
-
 /**
  * Created by java on 21.04.2017.
  */

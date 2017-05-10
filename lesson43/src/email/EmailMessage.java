@@ -4,10 +4,7 @@ package email;
  * Created by java on 21.04.2017.
  */
 public class EmailMessage {
-<<<<<<< HEAD
 
-=======
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
     private String clientEmail;
     private String messageText;
     private String subject;

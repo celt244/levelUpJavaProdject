@@ -1,13 +1,14 @@
 package email;
 
-import javax.mail.MessagingException;
-import javax.mail.Transport;
 import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.mail.*;
 import javax.mail.internet.*;
 
+/**
+ * Created by java on 21.04.2017.
+ */
 public enum EmailSender {
 
     INSTANCE;
@@ -21,18 +22,17 @@ public enum EmailSender {
 //        if (instance != null) return instance;
 //
 //        synchronized (EmailSender.class) {
-//            if(null == instance)
+//            if(null == instance) {
 //                instance = new EmailSender();
+//            }
 //        }
-//
 //
 //        return instance;
 //    }
-private volatile Lock lock = new ReentrantLock();
 
+    private volatile Lock lock = new ReentrantLock();
 
     public void sendEmail(String clientEmail, String messageText, String subject) {
-
         lock.lock();
         // Recipient's email ID needs to be mentioned.
 //        String to = "levelup.java.16.6@gmail.com";
@@ -40,11 +40,11 @@ private volatile Lock lock = new ReentrantLock();
         // Sender's email ID needs to be mentioned
         String from = "levelup.java.16.6@gmail.com";
 
+        // Sender's password needs to be mentioned
         final String password = "JavaLevelUp166";
 
         // Get system properties
         Properties properties = System.getProperties();
-
 
         // Setup mail server
         properties.put("mail.smtp.auth", "true");
@@ -77,9 +77,10 @@ private volatile Lock lock = new ReentrantLock();
 
             // Send message
             Transport.send(message);
-            System.out.println(new Date() + "Sent message successfully to: " + clientEmail);
+            System.out.println(new Date() + " Sent message successfully to: " + clientEmail);
+
             Thread.sleep(3000);
-        }catch (MessagingException | InterruptedException mex) {
+        } catch (MessagingException | InterruptedException mex) {
             mex.printStackTrace();
         }
 

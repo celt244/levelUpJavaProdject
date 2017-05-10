@@ -1,6 +1,5 @@
 package basic;
 
-<<<<<<< HEAD
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
@@ -11,48 +10,24 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 //        Thread thread = new Thread() {
-=======
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-public class Main {
-
-    public static void main(String[] args) {
-
-//    Thread thread = new Thread() {
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 //
 //            @Override
 //            public void run() {
 //                System.out.println(Thread.currentThread().getName());
 //
-<<<<<<< HEAD
 //                for(int i = 0; i < 10; i++) {
 //                    System.out.println(Thread.currentThread().getName() + " & " + i);
-=======
-//                for (int i = 0; i < 10; i++) {
-//                    System.out.println(Thread.currentThread().getName() + " $ " + i);
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 //                }
 //            }
 //        };
 //
 //        thread.start();
 //
-<<<<<<< HEAD
 //
 //        for(int i = 0; i < 10; i++) {
 //            System.out.println(Thread.currentThread().getName() + " " + i);
 //        }
 
-=======
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println(Thread.currentThread().getName());
-//        }
-
-
-        //basic.CounterThread
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 //        basic.CounterThread thread1 = new basic.CounterThread(1, 1, 17);
 //        basic.CounterThread thread2 = new basic.CounterThread(0, 5, 26);
 //
@@ -62,7 +37,6 @@ public class Main {
 //        thread2.start();
 
 
-<<<<<<< HEAD
 //        ExecutorService executorService = Executors.newFixedThreadPool(3);
 //
 //
@@ -75,32 +49,12 @@ public class Main {
 //
 
 
-=======
-        //basic.CounterRunnable
-
-
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
-
-
-        CounterPrinter counterPrinter = new CounterPrinter();
-
-        executorService.execute(new CounterRunnable(1, 2, 13));
-        executorService.execute(new CounterRunnable(17, 10, 99));
-        executorService.execute(new basic.CounterRunnable(4, 3, 36));
-//        executorService.execute( () -> System.out.println("Hello world"));
-//
-
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 //        executorService.execute(new Runnable() {
 //            @Override
 //            public void run() {
 //                System.out.println(Thread.currentThread().getName());
-<<<<<<< HEAD
 //
 //                Thread thread = new Thread(new CounterRunnable(1, 1, 1000));
-=======
-//                Thread thread = new Thread(new basic.CounterRunnable(1, 1, 1000));
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
 //                thread.start();
 //
 //                try {
@@ -112,7 +66,6 @@ public class Main {
 //                System.out.println(Thread.currentThread().getName() + " finished");
 //            }
 //        });
-<<<<<<< HEAD
 //
 //        System.out.println(Thread.currentThread().getName() + " finished");
 
@@ -325,17 +278,6 @@ public class Main {
             Main.number += 1;
         }
         System.out.println(Main.number + " " + Thread.currentThread().getName());
-=======
-
-        System.out.println(Thread.currentThread().getName() + " finished");
-
-
-
-        executorService.shutdown();
-
-
-
->>>>>>> 636b87fdf002691070861aee1e0806a88d303287
     }
 
 }
