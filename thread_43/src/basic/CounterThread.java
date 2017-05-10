@@ -17,7 +17,7 @@ public class CounterThread extends Thread {
 
     @Override
     public void run() {
-        for (int i = initialValue; i < maxValue; i+=step) {
+        for (int i = initialValue; i < maxValue; i += step) {
             System.out.println(Thread.currentThread().getName() + " " + i);
         }
     }
