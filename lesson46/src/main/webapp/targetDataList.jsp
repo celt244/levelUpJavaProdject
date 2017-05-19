@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: java
-  Date: 16.05.2017
-  Time: 19:43
+  Date: 12.05.2017
+  Time: 20:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,31 +10,32 @@
 <html>
 <head>
     <title>Target Data List</title>
+    <meta charset="UTF-8">
 </head>
 <body>
 
-        <table>
-            <thead>
+    <table>
+        <thead>
+        <tr>
+            <td>Email</td>
+            <td>User Name</td>
+        </tr>
+        </thead>
+
+        <tbody>
+            <c:forEach var="td" items="${targetDataList}">
                 <tr>
-                    <td>Email</td>
-                    <td>User name</td>
+                    <td>
+                        <c:out value="${td.email}"/>
+                    </td>
+                    <td>
+                        <c:out value="${td.userName}"/>
+                    </td>
                 </tr>
-            </thead>
+            </c:forEach>
+        </tbody>
 
-
-
-                <c:forEach var="td" items="${targetDataList}">
-                    <tr>
-                        <td>
-                    <c:out value="${td.email}"/>
-                        </td>
-                        <td>
-                    <c:out value="${td.userName}"/>
-                        </td>
-                    </tr>
-                </c:forEach>
-
-        </table>
+    </table>
 
 </body>
 </html>

@@ -14,7 +14,7 @@ public class CheckBalanceServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            PrintWriter writer = resp.getWriter();
-            writer.println("<h1>Hello world!</h1>");
+        PrintWriter writer = resp.getWriter();
+        writer.println("<h1>Balance: 100$</h1>");
     }
 }

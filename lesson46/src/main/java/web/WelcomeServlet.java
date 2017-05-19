@@ -1,6 +1,5 @@
 package web;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,30 +10,26 @@ import java.io.PrintWriter;
 /**
  * Created by java on 12.05.2017.
  */
+public class WelcomeServlet extends HttpServlet {
 
-    public class WelcomeServlet extends HttpServlet {
-
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//            PrintWriter writer = resp.getWriter();
-//            writer.println("<h1>Hello world!</h1>");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
-        }
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        PrintWriter writer = resp.getWriter();
+//        writer.println("<h1>Hello World!</h1>");
+        req.getRequestDispatcher("login.jsp").forward(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req);
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
 //        PrintWriter writer = resp.getWriter();
-//        writer.println(String.format("Hello, %! Your password lenght is: %d", login, password.length()));
+//        writer.println(String.format("Hello, %s! Your password length is: %d", login, password.length()));
 
-        req.setAttribute("userName ", login);
-        req.setAttribute("balance ", "100$");
+        req.setAttribute("userName", login);
+        req.setAttribute("balance", "100$");
 
         req.getRequestDispatcher("userPage.jsp").forward(req, resp);
     }
 }
-
-

@@ -5,17 +5,17 @@ import java.io.Serializable;
 /**
  * Created by java on 16.05.2017.
  */
-public class TargetData implements Serializable{
+public class TargetData implements Serializable {
 
     private String email;
-    private String UserName;
+    private String userName;
 
-    public TargetData() {
+    public TargetData(String email, String userName) {
+        this.email = email;
+        this.userName = userName;
     }
 
-    public TargetData(String email, String UserName) {
-        this.email = email;
-        this.UserName = UserName;
+    public TargetData() {
     }
 
     public String getEmail() {
@@ -27,10 +27,10 @@ public class TargetData implements Serializable{
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        this.UserName = userName;
+        this.userName = userName;
     }
 }
