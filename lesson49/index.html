@@ -52,7 +52,7 @@
 				<td><input type="text" id="age" placeholder="Age" name="age"></td>
 				<td>
 					<select id="role">
-						<option selected value="SIMPLE">Simple</option>
+						<option value="SIMPLE">Simple</option>
 						<option value="ADMIN">Administrator</option>
 					</select>
 				</td>
@@ -63,14 +63,13 @@
 						<p><input type="radio" name="gender" value="FEMALE">Female</option></p>
 					</div>
 				</tr>
-				<span >
-					<td><button hidden id="save-dtn" onclick="saveUser(this)">Save</button></td>
+				<span>
+					<td><button hidden id="save-btn" onclick="saveUser(this)">Save</button></td>
 				</span>
 
-				<span >
+				<span>
 					<td><button hidden id="send-btn" onclick="sendUser()">Send</button></td>
 				</span>
-
 			</table>
 		</div>
 
@@ -100,11 +99,12 @@
 
 						<td><button data-id="1" style="display: inline-block;" onclick="editUser(this)">Edit</button></td>
 					</tr>
+
 					<tr>
 						<td name="id">2</td>
 						<td name="login">Tom</td>
 						<td name="email">tom@yopmail.com</td>
-						<td name="age">30</td>
+						<td name="age">37</td>
 						<td name="role">Simple</td>
 						<td name="gender">Male</td>
 
@@ -113,13 +113,8 @@
 				</tbody>
 			</table>
 		</div>
-			<button onclick="showEditForm">Add user</button>
 
-
-		</body>
-
-		</html>
-
+		<button onclick="showAddForm()">Add user</button>
 
 
 		<script type="text/javascript">
@@ -127,28 +122,37 @@
 		function showAddForm() {
 			showEditForm();
 
-			document.getElementById('send-bnt').removeAttribute('hidden');
-			document.getElementById('save-bnt').setAttribute('hidden', true);
+			document.getElementById('send-btn').removeAttribute('hidden');
+			document.getElementById('save-btn').setAttribute('hidden', true);
+
 		}
 
 		function sendUser() {
 			let user = getFormData();
 
-			vat
+			let requestParams = `login=${user.login}&email=${user.email}&age=${user.age}&user-role=${user.role}`;
 
-			fetch('/search', {
-				method 'POST',
-				headers: {'Content-Type':'application/x-www-form-urlencoded'}
-				body: 'query= ' + quety
-			}).then(function(respone){
-				return respone;
-			}).catch(alert);
+			let headers = new Headers({
+				'Content-Type':'application/x-www-form-urlencoded'
+				// 'Access-Control-Allow-Origin': '*'
+			});
+
+			fetch('http://localhost:8080/user/registration', {
+				method: 'POST',
+				headers,
+				body: requestParams
+			})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(alert);
 		}
 
 		function saveUser() {
 			let currentRow = document.querySelector('tr[in-editing]');
 
 			currentRow.removeAttribute('in-editing');
+
 
 			let id = currentRow.querySelector('td[name="id"]');
 			let login = currentRow.querySelector('td[name="login"]');
@@ -157,17 +161,17 @@
 			let role = currentRow.querySelector('td[name="role"]');
 			let gender = currentRow.querySelector('td[name="gender"]');
 
+
 			let user = getFormData();
 
-			id.innerHTML= user.id;
-			login.innerHTML= user.login;
-			email.innerHTML= user.email;
-			age.innerHTML= user.age;
-			role.innerHTML= user.role;
-			gender.innerHTML= user.gender;
-			
-
+			id.innerHTML = user.id;
+			login.innerHTML = user.login;
+			email.innerHTML = user.email;
+			age.innerHTML = user.age;
+			role.innerHTML = user.role;
+			gender.innerHTML = user.gender;
 		}
+
 
 		function editUser(data) {
 			showEditForm();
@@ -183,38 +187,41 @@
 			let role = currentRow.querySelector('td[name="role"]').innerHTML;
 			let gender = currentRow.querySelector('td[name="gender"]').innerHTML;
 
+
 			document.getElementById('id').value = id;
 			document.getElementById('login').value = login;
 			document.getElementById('email').value = email;
 			document.getElementById('age').value = age;
 
-
 			let roleSelect = document.getElementById('role').options;
 
-			for(let i = roleSelect.lenght - 1; i >= 0; i--) {
+			for(let i = roleSelect.length - 1; i >= 0; i--) {
 				let opt = roleSelect[i];
 
-				if(role === opt.innerHTML){ 
-					roleSelect[i].selected = true;
-				} else roleSelect[i].selected = fasle;
+				if(role === opt.innerHTML) {
+					roleSelect[i].selected = true
+				} else roleSelect[i].selected = false;
 			}
 		}
 
 		function showEditForm() {
 			document.getElementById('edit-form').removeAttribute('hidden');
-
 		}
+
+
+
+
 
 		function getFormData() {
-			let id = currentRow.querySelector('id');
-			let login = currentRow.querySelector('login');
-			let email = currentRow.querySelector('email');
-			let age = currentRow.querySelector('age');
-			
+			let id = document.getElementById('id').value;
+			let login = document.getElementById('login').value;
+			let email = document.getElementById('email').value;
+			let age = document.getElementById('age').value;
 			let roleSelect = document.getElementById('role');
-			let role = roleSelect.option[roleSelect.selectedIndex].text;
-			let gender = currentRow.querySelector('gender');
 
-			return {id, login, email, age, role, gender}
+			let role = roleSelect.options[roleSelect.selectedIndex].text;
+			let gender = document.getElementById('gender').value;
+
+			return {id, login, email, age, role, gender};
 		}
-		</script>
+</script>
