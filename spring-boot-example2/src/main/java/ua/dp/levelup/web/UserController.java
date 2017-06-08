@@ -1,6 +1,5 @@
 package ua.dp.levelup.web;
 
-<<<<<<< HEAD
 import com.oracle.tools.packager.IOUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -16,21 +15,12 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
-=======
-import java.io.*;
-import java.util.Arrays;
-import java.util.List;
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
-import org.springframework.web.bind.annotation.RequestMethod;
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,12 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.dp.levelup.dao.UserDao;
 import ua.dp.levelup.model.User;
 
-<<<<<<< HEAD
-=======
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletResponse;
-
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 /**
  * A class to test interactions with the MySQL database using the UserDao class.
  *
@@ -162,7 +146,6 @@ public class UserController {
     );
   }
 
-<<<<<<< HEAD
   @RequestMapping("user/avatar")
   public ResponseEntity<HttpStatus> uploadFile(@RequestParam("file") MultipartFile file, HttpServletResponse response) {
     response.setHeader("Access-Control-Allow-Origin", "*");
@@ -189,31 +172,8 @@ public class UserController {
 
     modelAndView.addObject("image", arr);
     modelAndView.addObject("user", new User(1, "user1@yopmail.com", "user1"));
-=======
-  @RequestMapping("/user")
-  public ModelAndView getUserInfoPage() {
-    ModelAndView modelAndView = new ModelAndView("user-info");
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 
     return modelAndView;
   }
 
-<<<<<<< HEAD
-=======
-  @RequestMapping(value = "/user/avatar", method = RequestMethod.POST)
-  public ResponseEntity uploadAvatar(@RequestParam(name = "file") MultipartFile avatar, HttpServletResponse response) {
-   response.addHeader("Access-Control-Allow-Origin", "*");
-
-    File file = new File(fileStorage, avatar.getOriginalFilename());
-    try (BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(file));){
-      os.write(avatar.getBytes());
-      return new ResponseEntity("Image upload successfully", HttpStatus.OK);
-    } catch (IOException e) {
-      e.printStackTrace();
-      return new ResponseEntity("Image not uploaded", HttpStatus.BAD_REQUEST);
-    }
-
-
-  }
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 } // class UserController

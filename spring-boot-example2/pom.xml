@@ -32,10 +32,6 @@
     </plugins>
   </build>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
   <dependencies>
 
     <dependency>

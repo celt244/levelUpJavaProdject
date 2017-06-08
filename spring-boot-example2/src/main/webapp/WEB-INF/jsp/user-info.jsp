@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%--
   Created by IntelliJ IDEA.
   User: aleksandr
@@ -15,21 +14,11 @@ html>
 
 
 <img src="/resources/photo_not_available.png" alt="User avatar">
-=======
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<head>
-    <title>User info</title>
-</head>
-<body>
-
-<img src="/resources/unknown-person.gif" alt="user-avatar"></img>
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
 
 <input id="user-avatar" type="file">
 <button onclick="uploadFile()">Upload</button>
 
 <script>
-<<<<<<< HEAD
 
   function uploadFile() {
     var input = document.querySelector('input[type="file"]');
@@ -68,29 +57,3 @@ html>
 
 </body>
 </html>
-=======
-    function uploadFile(){
-        let file = document.getElementsById("user-avatar").value;
-
-        fetch("http://localhost:8080/user/avatar",
-                {
-                    headers: new Headers({
-                        "Content-Type" : "multipart/form-data"
-                    }),
-                    method: "post",
-                    body : file
-                }
-        )
-                .then(response => response.json())
-                .then(function(response) {
-                    console.log(response);
-                })
-                .cath(error => console.error(error))
-
-
-    }
-</script>
-
-</body>
-</html>
->>>>>>> 09a3f37df822c7995da72fbfd94d291b77db942c
