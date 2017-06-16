@@ -1,4 +1,4 @@
-package ua.dp.levelup;
+package ua.dp.levelUp;
 
 /**
  * Created by java on 13.06.2017.

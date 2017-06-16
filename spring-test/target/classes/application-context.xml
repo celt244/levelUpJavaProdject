@@ -3,9 +3,28 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="greetingBean" class="ua.dp.levelup.Greeting">
+    <bean id="greetingBean" class="ua.dp.levelUp.Greeting">
         <constructor-arg name="message" value="Hello guys!!!"/>
         <!--<property name="message" value="Hello World!!!" />-->
     </bean>
+
+    <bean id="owner" class="ua.dp.levelUp.User">
+        <property name="firstName" value="John"/>
+        <property name="lastName" value="Doie"/>
+    </bean>
+
+    <bean id="pc" class="ua.dp.levelUp.PC">
+        <property name="hdd" value="500GB"/>
+        <property name="ram" value="16GB"/>
+        <property name="owner" ref="owner"/>
+    </bean>
+
+    <bean id="userService" class="ua.dp.levelUp.UserService">
+
+
+    </bean>
+
+
+
 
 </beans>
