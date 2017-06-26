@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean class="ua.dp.levelup.ProfilingBeanPostProcessor" id="profilingBeanPostProcessor"/>
+
+    <!--<bean id="greetingBean" class="ua.dp.levelup.Greeting">-->
+        <!--<constructor-arg name="message" value="Hello guys!!!"/>-->
+        <!--&lt;!&ndash;<property name="message" value="Hello World!!!" />&ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--<bean id="user" class="ua.dp.levelup.User">-->
+        <!--<property name="firstName" value="Bob"/>-->
+        <!--<property name="lastName" value="Smith"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="pc" class="ua.dp.levelup.PC">-->
+        <!--<property name="hdd" value="500GB"/>-->
+        <!--<property name="ram" value="16GB"/>-->
+        <!--<property name="owner" ref="user" />-->
+    <!--</bean>-->
+
+    <bean id="userService" class="ua.dp.levelup.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <!--<bean class="ua.dp.levelup.Message" scope="singleton" id="singleton-message">-->
+        <!--<property name="message" value="Hello! That's singleton message bean"/>-->
+    <!--</bean>-->
+
+    <!--<bean class="ua.dp.levelup.Message" scope="prototype" id="prototype-message">-->
+        <!--<property name="message" value="Hello! That's prototype message bean"/>-->
+    <!--</bean>-->
+
+    <bean id="userDao" class="ua.dp.levelup.dao.impl.UserDaoImpl" init-method="init">
+        <!--<constructor-arg name="filePath" value="D://data/users.json"/>-->
+    </bean>
+
+
+  <bean class="ua.dp.levelup.dao.impl.FilmDaoImpl" id="filmDao"/>
+
+  <bean class="ua.dp.levelup.dao.impl.OrderDaoImpl" id="orderDao"/>
+
+  <bean class="ua.dp.levelup.dao.impl.MovieSessionDaoImpl" id="movieSessionDao"/>
+
+  <bean class="ua.dp.levelup.service.impl.OrderServiceImpl" id="orderService">
+    <property name="orderDao" ref="orderDao"/>
+  </bean>
+
+  <bean class="ua.dp.levelup.service.impl.FilmServiceImpl" id="filmService">
+    <property name="filmDao" ref="filmDao"/>
+  </bean>
+
+  <bean class="ua.dp.levelup.service.impl.MovieSessionServiceImpl" id="movieSessionService">
+    <property name="movieSessionDao" ref="movieSessionDao"/>
+  </bean>
+
+</beans>

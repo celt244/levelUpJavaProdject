@@ -19,11 +19,29 @@ public class ProfilingBeanPostProcessor implements BeanPostProcessor {
         Class<?> beanClass = bean.getClass();
         for (Method m : beanClass.getDeclaredMethods()) {
             if(m.isAnnotationPresent(Profiling.class)) {
-                System.out.println("postProcessBeforeInitialization");
+//                System.out.println("postProcessBeforeInitialization");
+//
+//                return Proxy.newProxyInstance(beanClass.getClassLoader(), beanClass.getInterfaces(), new InvocationHandler() {
+//                    @Override
+//                    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//                        if(method.isAnnotationPresent(Profiling.class)) {
+//                            System.out.println("Start profiling");
+//                            long start = System.nanoTime();
+//
+//                            Object result = method.invoke(bean, args);
+//
+//                            System.out.println("End profiling with time: " + (System.nanoTime() - start));
+//                            return result;
+//                        }
+//                        return method.invoke(bean, args);
+//                    }
+//                });
+
                 beans.put(beanName, beanClass);
                 return bean;
             }
         }
+
         return bean;
     }
 

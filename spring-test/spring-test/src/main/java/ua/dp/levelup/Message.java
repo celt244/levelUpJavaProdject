@@ -1,24 +1,21 @@
 package ua.dp.levelup;
 
 /**
- * Created by java on 13.06.2017.
+ * Created by java on 20.06.2017.
  */
-public class Greeting {
+public class Message {
 
     private String message;
 
-    public Greeting() {
-    }
-
-    public Greeting(String message) {
-        this.message = message;
+    public String getMessage() {
+        return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public void sayHello() {
+    public void print() {
         System.out.println(message);
     }
 }

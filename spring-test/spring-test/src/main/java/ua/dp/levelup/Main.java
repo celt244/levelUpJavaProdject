@@ -2,9 +2,6 @@ package ua.dp.levelup;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.orm.hibernate5.HibernateTemplate;
-import ua.dp.levelup.core.model.Film;
-import ua.dp.levelup.dao.FilmDao;
 import ua.dp.levelup.service.UserService;
 
 /**
@@ -49,25 +46,18 @@ public class Main {
 //        PC bean = context.getBean(PC.class);
 //
 //        System.out.println(bean);
-//        UserService service = context.getBean(UserService.class);
-//        System.out.println("Call method doMagic()");
-//        service.doMagic();
-//
-//        User u = new User(24L, "john.snow@got.com", "John", "Snow");
-//
-//        System.out.println("Call method createUser()");
-//        service.createUser(u);
-//
-//        u.setEmail("jsnow@gmail.com");
-//
-//        System.out.println("Call method updateUser()");
-//        service.updateUser(u);
 
-        Film film = new Film("Transformers: The Last Knight", "Humans and Transformers are at war, Optimus Prime is gone. The key to saving our future lies buried in the secrets of the past, in the hidden history of ...", 2.29D);
+        UserService service = context.getBean(UserService.class);
+      System.out.println("Call method doMagic()");
+        service.doMagic();
+      User u = new User(24L, "john.snow@got.com", "John", "Snow");
 
-        FilmDao filmDao = context.getBean(FilmDao.class);
+      System.out.println("Call method createUser()");
+      service.createUser(u);
 
-        filmDao.createFilm(film);
+      u.setEmail("jsnow@gmail.com");
+      System.out.println("Call method updateUser()");
+      service.updateUser(u);
 
         context.close();
     }
