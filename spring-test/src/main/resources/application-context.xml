@@ -49,13 +49,13 @@
         <property name="hibernateTemplate" ref="hibernateTemplate"/>
     </bean>
 
-    <bean class="ua.dp.levelup.dao.impl.OrderDaoImpl" id="orderDao"/>
+    <!--<bean class="ua.dp.levelup.dao.impl.OrderDaoImpl" id="orderDao"/>-->
 
     <!--<bean class="ua.dp.levelup.dao.impl.MovieSessionDaoImpl" id="movieSessionDao"/>-->
 
-    <bean class="ua.dp.levelup.service.impl.OrderServiceImpl" id="orderService">
-        <property name="orderDao" ref="orderDao"/>
-    </bean>
+    <!--<bean class="ua.dp.levelup.service.impl.OrderServiceImpl" id="orderService">-->
+        <!--<property name="orderDao" ref="orderDao"/>-->
+    <!--</bean>-->
 
     <bean class="ua.dp.levelup.service.impl.FilmServiceImpl" id="filmService">
         <property name="filmDao" ref="filmDao"/>
@@ -97,12 +97,13 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>db-config.properties</value>
-            </list>
-        </property>
-    </bean>
+    <!--<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>db-config.properties</value>-->
+                <!--<value>dev.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
 </beans>

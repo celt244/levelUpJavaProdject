@@ -1,12 +1,22 @@
 package ua.dp.levelup;
 
+import org.hibernate.Hibernate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import ua.dp.levelup.core.model.Film;
+import ua.dp.levelup.core.model.MovieSession;
+import ua.dp.levelup.core.model.Order;
+import ua.dp.levelup.core.model.Ticket;
 import ua.dp.levelup.dao.FilmDao;
 import ua.dp.levelup.dao.MovieSessionDao;
+import ua.dp.levelup.dao.OrderDao;
+import ua.dp.levelup.dao.TicketDao;
+import ua.dp.levelup.service.MovieSessionService;
 import ua.dp.levelup.service.UserService;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author Alexandr Shegeda on 13.06.2017.
@@ -70,8 +80,32 @@ public class Main {
 //
 //        filmDao.createFilm(film);
 
-        MovieSessionDao bean= context.getBean(MovieSessionDao.class);
-        bean.toString();
+//        MovieSessionService bean = context.getBean(MovieSessionService.class);
+//        bean.createMovieSession(new MovieSession(1L, new Date(), new Date(), 5, 70, 120));
+
+//        MovieSession movieSession = bean.getMovieSessionById(2L);
+
+//        System.out.println(movieSession);
+//        System.out.println(movieSession.getClass());
+
+        OrderDao orderDao = context.getBean(OrderDao.class);
+//        TicketDao ticketDao = context.getBean(TicketDao.class);
+//
+//        Order order = new Order(70D, 10L);
+//        Ticket ticket = new Ticket(70D, 2L, order);
+//
+//        order.addTicket(ticket);
+//
+//        orderDao.createOrder(order, ticket);
+//        ticketDao.createTicket(new Ticket());
+
+        long orderId = 4L;
+        Order order = orderDao.getOrderById(orderId);
+
+        List<Ticket> tickets = order.getTickets();
+        Hibernate.initialize(tickets);
+
+        System.out.println(order);
 
         context.close();
     }
